@@ -1,0 +1,13 @@
+Vocab ← :[\n]* Subject*
+Subject ← SubjectName :'\n' (!'#' (Word | Phrase | :'\n'))*
+Word ← Trans :' '+ Farsi :' '+ LatinArr
+Phrase ← ((Flexed | Farsi) :[,.?!؟ ]*)+
+
+SubjectName ← :'#' [^\n]*
+
+Flexed ← Farsi :'(' Farsi :')'
+
+Farsi ← [ا-ی ]+
+Trans ← [a-zāčšġğ'-]+
+LatinArr ← Latin (:'/' Latin)*
+Latin ← [a-zA-Z0-9 ]+
