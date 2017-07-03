@@ -1,0 +1,5 @@
+```
+stylus -w style.styl &
+webpack -w --devtool eval-cheap-module-source-map &
+./server.ls &
+```

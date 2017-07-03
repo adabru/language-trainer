@@ -1,0 +1,24 @@
+{
+  "name": "language-trainer",
+  "version": "1.0.0",
+  "description": "personal vocabulary trainer",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/adabru/language-trainer.git"
+  },
+  "author": "adabru",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/adabru/language-trainer/issues"
+  },
+  "homepage": "https://github.com/adabru/language-trainer#readme",
+  "devDependencies": {
+    "hyperscript-helpers": "^3.0.3",
+    "livescript": "^1.5.0",
+    "livescript-loader": "^0.1.6",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "stylus": "^0.54.5",
+    "webpack": "^3.0.0"
+  }
+}
