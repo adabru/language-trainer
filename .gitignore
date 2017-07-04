@@ -1,4 +1,7 @@
 node_modules
+
 *.css
 *.js
+data/profile.json
+
 absh.ls

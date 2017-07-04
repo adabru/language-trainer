@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/adabru/language-trainer#readme",
   "devDependencies": {
-    "adabru-parser": "github:adabru/adabru-parser",
+    "adabru-parser": "github:adabru/adabru-parser#91415e5",
     "hyperscript-helpers": "^3.0.3",
     "livescript": "^1.5.0",
     "livescript-loader": "^0.1.6",

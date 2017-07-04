@@ -1,5 +1,4 @@
 ```
-abp -g ./data/vocabulary.grammar -i ./data/vocabulary -o ./data/vocabulary.json
 stylus -w style.styl &
 webpack -w --devtool eval-cheap-module-source-map &
 ./server.ls &
