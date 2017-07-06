@@ -46,11 +46,11 @@ class Word extends React.Component
             case sub <= ins and sub <= del then v:sub, ops:cost[i-1][j-1].ops ++ ['s']
     cost[*-1][*-1]
   render: ~>
-    if @props.input
+    div {className: 'word'}, if @props.input
       [s, t] = [@props.typed, @props.farsi]
       edit = (@levenshtein s, t).ops
       key = 0
-      div {}, while edit.length
+      while edit.length
         step = switch
           case edit.0 is 's' and s[0] is t[0]
             l = (-> (for j from 0 til s.length then if s[j] isnt t[j] then return j) ; s.length)!
@@ -58,7 +58,7 @@ class Word extends React.Component
           case edit.0 is 's' and s[0] isnt t[0]
             [1, 1, s[0], 's_wrong']
           case edit.0 is 'i'
-            [0, 1, t[0], 'i']
+            [0, 1, '•', 'i']
           case edit.0 is 'd'
             [1, 0, s[0], 'd']
         console.log step
@@ -66,9 +66,7 @@ class Word extends React.Component
         edit = edit.slice step.2.length
         span {className: step.3, key:key+=1}, step.2
     else
-      span do
-        {}
-        @props.farsi
+      span {}, @props.farsi
 
 exports <<<
   render: (node) ->
