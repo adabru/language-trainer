@@ -3,12 +3,14 @@
 # return (require './absh').absh {req}
 
 require! [http, fs, util]
+
+algo = require './algorithm.ls'
 print = (s) -> console.log util.inspect s, {+colors, depth:0}
 
 
 server = http.createServer (req, res) ->
-  switch
-    case req.url is '/'
+  switch req.url
+    case '/'
       res.writeHead 200, {'Content-Type': 'text/html; charset=utf-8'}
       s = """
         <head>
@@ -20,6 +22,14 @@ server = http.createServer (req, res) ->
           frontend.render(document.querySelector("\#app"))
         </script>"""
       res.end s
+    case '/phrase'
+      res.writeHead 200, {'Content-Type': 'application/json; charset=utf-8'}
+      <- algo.init.then _
+      s = JSON.stringify algo.next_phrase!
+      res.end s
+    case '/word'
+      (require './absh').absh {req}
+      res.end ''
     default
       p = ".#{req.url}"
       fs.access p, fs.constants.R_OK, (err) ->

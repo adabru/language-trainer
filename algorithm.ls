@@ -18,7 +18,7 @@ stackTrace = (e) ->
 util.flatten = (arr) -> [].concat.apply [], arr
 promiseThenCatch = (p, t, c) -> p.then(t).catch(c)
 
-algo = new
+module.exports = algo = new
   init_vocabulary = new Promise (fulfill, reject) ->
     (err, v) <~ fs.readFile './data/vocabulary', 'utf8', _
     if err? then throw err
@@ -87,8 +87,7 @@ algo = new
     phrase = phrase.map (x) ->
       w = v.words.find((a) -> a.farsi is x.1)
       if not w? then log "\033[33mFarsi word \033[1m#{x.1}\033[22m is referenced but not in the vocabulary\033[39m"
-      { farsi: x.0, stem: x.1 } <<< if w? then { w.trans, w.latin, weight: weight p[x.1] }
-    print phrase
+      { farsi: x.0, stem: x.1, train: x.0 is word } <<< if w? then { w.trans, w.latin, weight: weight p[x.1] }
 
 # tests
 if process.argv.1.endsWith 'algorithm.ls'
